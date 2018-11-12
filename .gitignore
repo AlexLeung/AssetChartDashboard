@@ -1,0 +1,6 @@
+dist/
+node_modules/
+static/bundle.js
+.vscode
+package-lock.json
+*.js

@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "removeComments": true,
+    "experimentalDecorators": true,
+    "jsx": "react",
+    "outDir": "dist",
+    "esModuleInterop": true,
+    "lib": [
+        "es2015", "dom"
+    ]
+  },
+  "exclude": [
+    "node_modules",
+    "static"
+  ]
+}
