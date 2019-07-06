@@ -18,7 +18,6 @@ class FauxApplicationState {
     }
 }
 
-
 const fauxAppState = new FauxApplicationState();
 
 @observer
@@ -61,6 +60,19 @@ class MainView extends React.Component<{}, {}> {
 };
 ReactDOM.render(<MainView />, document.getElementById('root'));
 
+console.log("hello world!");
+
+const webSocket = new WebSocket(`ws://${location.host}`);
+webSocket.onopen = function() {
+    console.log("socket open");
+    webSocket.send(JSON.stringify({message:"hello world"}));
+    console.log("websocket sent");
+}
+webSocket.onmessage = function(message) {
+    console.log("recerved message from server");
+    console.log(message);
+    console.log("specific content is \""+message.data+"\"");
+}
 /*
 function f(target, propertyKey: string, descriptor: PropertyDescriptor) {
     console.log("f(): called");

@@ -1,18 +1,17 @@
 import * as path  from 'path';
-import * as webpack from 'webpack';
+import {Configuration} from 'webpack';
 
-const clientPath = '../../client'
-const configuration: webpack.Configuration = {
+const clientPath = '../client'
+const configuration: Configuration = {
     mode: "development",
     devtool: 'eval',
     entry: [
-        'webpack-dev-server/client?http://localhost:3000',
         `${clientPath}/src/index`
     ],
     output: {
         path: path.resolve(`${clientPath}/dist`),
         filename: 'bundle.js',
-        publicPath: '/static/'
+        publicPath: '/'
     },
     resolve: {
         extensions: ['.js', '.ts', '.tsx']
@@ -20,10 +19,8 @@ const configuration: webpack.Configuration = {
     module: {
         rules: [{
             test: /\.tsx?$/,
-            use: "ts-loader",
-            include: path.resolve(`${clientPath}/src`)
+            use: "ts-loader"
         }]
     }
 };
-
 export default configuration;
